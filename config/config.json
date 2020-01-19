@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "page-properties-reader-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/pagePropertiesReader/PagePropertiesReaderWebPart.js",
+          "manifest": "./src/webparts/pagePropertiesReader/PagePropertiesReaderWebPart.manifest.json"
+        }
+      ]
+    },
+    "react-sharepointlists-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/reactSharepointlists/ReactSharepointlistsWebPart.js",
+          "manifest": "./src/webparts/reactSharepointlists/ReactSharepointlistsWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {
+    "sp-init": {
+      "path": "https://contoso.sharepoint.com/_layouts/15/init.js",
+      "globalName": "$_global_init"
+    },
+    "microsoft-ajax": {
+      "path": "https://contoso.sharepoint.com/_layouts/15/MicrosoftAjax.js",
+      "globalName": "Sys",
+      "globalDependencies": [
+        "sp-init"
+      ]
+    },
+    "sp-runtime": {
+      "path": "https://contoso.sharepoint.com/_layouts/15/SP.Runtime.js",
+      "globalName": "SP",
+      "globalDependencies": [
+        "microsoft-ajax"
+      ]
+    },
+    "sharepoint": {
+      "path": "https://contoso.sharepoint.com/_layouts/15/SP.js",
+      "globalName": "SP",
+      "globalDependencies": [
+        "sp-runtime"
+      ]
+    }
+  },
+  "localizedResources": {
+    "PagePropertiesReaderWebPartStrings": "lib/webparts/pagePropertiesReader/loc/{locale}.js",
+    "ReactSharepointlistsWebPartStrings": "lib/webparts/reactSharepointlists/loc/{locale}.js"
+  }
+}
